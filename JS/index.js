@@ -1,8 +1,7 @@
 let comanda = "";
-let ingreseNombre;
 
 const nombreMozo = () =>{
-ingreseNombre = prompt(`Ingrese su nombre`)
+let ingreseNombre = prompt(`Ingrese su nombre`)
 alert(`@@@@  BIENVENIDO AL SERVICIO ${ingreseNombre} @@@@`)
 pedidos();
 comandaFinal();
