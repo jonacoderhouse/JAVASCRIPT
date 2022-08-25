@@ -1,9 +1,14 @@
 let comanda = "";
 let ingreseNombre;
 
+const nombreMozo = () =>{
 ingreseNombre = prompt(`Ingrese su nombre`)
 alert(`@@@@  BIENVENIDO AL SERVICIO ${ingreseNombre} @@@@`)
+pedidos();
+comandaFinal();
+}
 
+const pedidos = () => {
 do{
     listaPedidos = prompt("Ingresar el pedido");
     if(listaPedidos ===""){
@@ -13,8 +18,14 @@ do{
     else if( listaPedidos !== ""){
         
         comanda = comanda+ " \n "+ listaPedidos;
+        alert(`su comanda hasta ahora es: \n ${comanda}`)
     }
 
 }while(confirm(`Desear continuar`));
+}
 
+const comandaFinal = () => {
 alert(`Su pedido son los siguientes: ${comanda}`);
+}
+
+nombreMozo();
