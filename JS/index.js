@@ -25,7 +25,7 @@ do{
 }
 
 const comandaFinal = () => {
-alert(`Su pedido son los siguientes: ${comanda}`);
+alert(`Su pedido son los siguientes: ${comanda}.`);
 }
 
 nombreMozo();
