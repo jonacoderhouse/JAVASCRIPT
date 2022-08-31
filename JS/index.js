@@ -36,7 +36,10 @@ class Comandas {
         this.bebida = bebida;
         this.postre = postre
     } comandas() {
-        alert(`ingreso un Menu de ${this.menu} Bebida: ${this.bebida} y Postre ${this.postre}`)
+        alert(`Ingreso : 
+        Menu : ${this.menu} 
+        Bebida: ${this.bebida} 
+        Postre ${this.postre}`)
     }
 }
 
