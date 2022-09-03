@@ -1,21 +1,31 @@
 //@@@@@@@@@@@@ APLICACION JONY @@@@@@@@@@@
 
 /*Realice un ejercicio aplicando Bucle do while con el fin de lograr una aplicacion que te permita
-realizar una lista de pedidos para un mozo y que sea mas rapido para mejorar el tiempo de pedido en las mesas
-y a su vez que la comanda llegue directamente a la cocina, 
-de todos modos solo pude hacer el ejercio esta mas que claro
-que me falta mucho para desarrollar una apliacion asi..*/
+realizar una lista de pedidos para un mozo y que sea mas rapido para mejorar el tiempo de pedido en las mesas*/
 
 //@@@@@@ OBJETO @@@@@@@@@@@@@@@
 const restoBar = {
+    nombreFantasia: "RestoCAn",
     razonSocial: "BONNIE UMA MARGOT",
-    cuit: 20 - 32891150 - 9,
+    cuit: "20 - 32891150 - 9",
     domicilio: "OTAMENDI 386",
     cantidadEmpleados: 10,
+    habilitado: "GBA habilitacion numero 000000000",
+    socios: [
+        {
+            nombre: "Jonathan Giano",
+            idSocio: 34567
+        },
+        {
+            nombre: "Bonnie Margot Giano",
+            idSocio: 34456
+        },
+        {
+            nombre: "Uma Rius",
+            idSocio: 34456
+        }
+    ]
 }
-const datos = []; // ARRYA PARA OBJETO RESTOBAR
-datos.push(restoBar);
-console.log(datos);
 
 
 //@@@@@@@@@@@@@@@@@@@@@@@ CLASS CONSTRUCTORA @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
@@ -31,22 +41,25 @@ class DatosEmpleado {
 }
 
 class Comandas {
-    constructor(menu, bebida, postre,) {
-        this.menu = menu;
-        this.bebida = bebida;
-        this.postre = postre
-    } comandas() {
-        alert(`Ingreso : 
-        Menu : ${this.menu} 
-        Bebida: ${this.bebida} 
-        Postre ${this.postre}`)
+    constructor(opcion) {
+        this.id = opcion.id
+        this.menu = opcion.menu
+        this.bebida = opcion.bebida
+        this.precio = opcion.precio
     }
 }
 
 
 //@@@@@@@@@@@@@@@@@@@ FUNCION FLECHA PARA SOLICITAR DATOS@@@@@@@@@@@@@@@@@@2
 
-const datosEmpleados = [];    // ARRAY PARA GUARDAR DATOS DE LA CANTIDAD DE EMPLEADOS QUE SE REGISTRA
+const datosEmpleados = [];// ARRAY PARA GUARDAR DATOS DE LA CANTIDAD DE EMPLEADOS QUE SE REGISTRA
+
+const loguearEmpleado = (nombre, apellido, id) => {
+    const infoEmpleado = new DatosEmpleado(nombre, apellido, id)
+    datosEmpleados.push(infoEmpleado);
+    infoEmpleado.mensaje();
+    console.log(datosEmpleados);
+}
 
 const datosMozo = () => {
     let nombreMozo = prompt("ingresar nombre mozo");
@@ -64,49 +77,100 @@ const datosMozo = () => {
         alert(`ingresar id`)
         idMozo = Number(prompt("Ingrese su id"))
     }
-
-    const infoEmpleado = new DatosEmpleado(nombreMozo, apellidoMozo, idMozo)
-    datosEmpleados.push(infoEmpleado);
-    infoEmpleado.mensaje();
-    console.log(datosEmpleados);
+    loguearEmpleado(nombreMozo, apellidoMozo, idMozo)
 }
 
 //@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@ FUNCION PARA REGISTRO DE COMANDAS@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@2
 let canComandas = 0;
-let listapedido;
-let bebidas;
-let postres;
-const arrayGourmet = [];// ARRAY DE OBJETOS
+const arrayGourmet = [];// ARRAY 
+const fecha = new Date;
+
+const menuDelDia = [
+    {
+        id: 1,
+        menu: 'Milanesa con Pure',
+        bebida: `coca cola`,
+        precio: 1000
+    },
+
+    {
+        id: 2,
+        menu: 'Mila napo con fritas',
+        bebida: `coca cola`,
+        precio: 1200
+    },
+
+    {
+        id: 3,
+        menu: 'bife de chorizo con papas epanola',
+        bebida: `coca cola`,
+        precio: 1120
+    },
+
+    {
+        id: 4,
+        menu: `Ravioles con salsa rosa`,
+        bebida: `coca cola`,
+        precio: 800
+
+    },
+
+    {
+        id: 5,
+        menu: 'Tallarines con salsa portugueza',
+        bebida: `coca cola`,
+        precio: 900
+    },
+
+    {
+        id: 6,
+        menu: `Sorretinos salsa mixta`,
+        bebida: `coca cola`,
+        precio: 950
+    },
+
+    {
+        id: 7,
+        menu: `Matambre a la pizza`,
+        bebida: `coca cola`,
+        precio: 1250
+    }
+]
 
 
-const registroPedidos = () => {// FUNCION FLECHA
+const registroPedidos = () => {
     do {
-        menu = prompt("ingrese el menu")
-        if (menu === "") {
-            alert(`No ingreso el menu`)
-            menu = prompt("igresar menu")
-        }
+        ingresaMenu = Number(prompt(`Ingresar opciones de menu
+        1-Milanesa con pure
+        2-MIlanesa Napo con fritas
+        3-Bife de chorizo con papas espanolas
+        4-Ravioles con salsa rosa
+        5-Tallarines con salsa portugueza
+        6-Sorretinos salsa mixta
+        7-Matambre a la pizza
+        `))
+        nuevaComanda = menuDelDia.find(e => e.id === Number(ingresaMenu))
+        console.log(nuevaComanda)
 
-        bebidas = prompt("ingresar bebidas")
-        if (listapedido === "") {
-            alert(`No ingreso el menu`)
-            listapedido = prompt("igresar menu")
+        arrayGourmet.push(new Comandas(nuevaComanda))
+        console.log(arrayGourmet)
 
-        }
+        precioPagar = arrayGourmet.map(e => e.precio)
+        console.log(precioPagar)
 
-        postres = prompt("ingrese el postre")
-        if (listapedido === "") {
-            alert(`No ingreso el postre`)
-            postres = prompt("igresar menu")
-        }
-
-        const comanda = new Comandas(menu, bebidas, postres); // const comanda es el objeto creado.
-        arrayGourmet.push(comanda);//ARRAY
-        console.log(arrayGourmet);
-        comanda.comandas();
+        totalPago = precioPagar.reduce((ac,total) => ac +total, 0)
+        console.log(`valor total a pagar es ${totalPago}`);
+        
     } while (confirm("Desea continuar"));
     canComandas++
+
+    for (let i = 1; i <= arrayGourmet.length; i++) {
+        alert(`El menu ${i} fue ${arrayGourmet[i - 1].menu} 
+        \n Fecha y hora: ${fecha.toLocaleString()}
+        `)}
+
 }
+
 
 //@@@@@@@@@@@@@@@@@@@@@@@@@@@ FUNCION PARA SABER CANTIDAD COMANDAS@@@@@@@@@@@@@@@@@@@@@@@@@@
 
@@ -114,14 +178,18 @@ const cantComandas = () => {
     alert(`Usted ingreso un total de ${canComandas} comandas`);
 
 }
-//@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@ PANTALLA DE INICIO@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+//@@@@@@@@@@@@@@@@@@@@@@@@@@ FUNCION PARA RENDIR IMPORTE FINAL DEL DIA @@@@@@@@@@@@@@@@@@@@@
+const importeRendirCaja = () =>{
+    alert(`TOTAL A PAGAR ${totalPago}`)
+}
 
-
+//@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@ PANTALLA DE INICIO  @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
 do {
     opciones = Number(prompt(`#@#@#BIENVENIDO AL SERVICIO DE ${restoBar.razonSocial} #@#@#@
     Opcion 1- Ingresar nombre Mozo.
     Opcion 2- Ingresar comandas.
     Opcion 3- Cantidad comandas.
+    Opcion 4- Importe final del dia.
 
     $$$$$$ PRESIEONE ENTER PARA FINALIZAR $$$$$$`));
 
@@ -131,6 +199,8 @@ do {
         registroPedidos();
     } else if (opciones === 3) {
         cantComandas();
+    }else if (opciones === 4){
+        importeRendirCaja();
     }
 } while (parseInt(opciones));
 alert(`Terminaste el dia con ${canComandas} comandas.
