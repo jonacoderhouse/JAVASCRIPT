@@ -62,15 +62,15 @@ const loguearEmpleado = (nombre, apellido, id) => {
 }
 
 const datosMozo = () => {
-    let nombreMozo = prompt("ingresar nombre mozo");
+    let nombreMozo = prompt("Ingresar nombre mozo");
     if (nombreMozo === "") {
         alert(`No ingresaste ningun nombre`);
-        nombreMozo = prompt("ingresar nombre correcto")
+        nombreMozo = prompt("Ingresar nombre correcto")
     }
     let apellidoMozo = prompt("ingresar apellido")
     if (apellidoMozo === "") {
         alert(`No ingresaste ningun nombre`);
-        apellidoMozo = prompt("ingresar nombre correcto")
+        apellidoMozo = prompt("Ingresar nombre correcto")
     }
     let idMozo = Number(prompt("Ingrese su id"))
     if (idMozo === "" || idMozo !== (idMozo)) {
@@ -158,8 +158,8 @@ const registroPedidos = () => {
         precioPagar = arrayGourmet.map(e => e.precio)
         console.log(precioPagar)
 
-        totalPago = precioPagar.reduce((ac,total) => ac +total, 0)
-        console.log(`valor total a pagar es ${totalPago}`);
+        totalRendir= precioPagar.reduce((ac,total) => ac +total, 0)
+        console.log(`valor total a pagar es ${totalRendir}`);
         
     } while (confirm("Desea continuar"));
     canComandas++
@@ -180,7 +180,7 @@ const cantComandas = () => {
 }
 //@@@@@@@@@@@@@@@@@@@@@@@@@@ FUNCION PARA RENDIR IMPORTE FINAL DEL DIA @@@@@@@@@@@@@@@@@@@@@
 const importeRendirCaja = () =>{
-    alert(`TOTAL A PAGAR ${totalPago}`)
+    alert(`TOTAL A RENDIR: ${totalRendir}`)
 }
 
 //@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@ PANTALLA DE INICIO  @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
