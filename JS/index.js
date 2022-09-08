@@ -98,7 +98,7 @@ const menuDelDia = [
         id: 1,
         menu: 'Milanesa con Pure',
         bebida: `coca cola`,
-        precio: 1000
+        precio: 1200
     },
 
     {
