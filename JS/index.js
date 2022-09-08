@@ -28,15 +28,24 @@ const restoBar = {
 }
 
 
+//@@@@@@@@@@@@@@@@@@@ ZONA NODOS @@@@@@@@@@@@@@@@@@@@
+const msjDespedida = document.querySelector(`#textoFinal`)
+const msj = document.querySelector('#textoFinalUno')
+const msjUno = document.querySelector('#textoFinalDos')
+const msjDos = document.querySelector('#textoFinalTres')
+const msjTres = document.querySelector('#textoFinalFour')
 //@@@@@@@@@@@@@@@@@@@@@@@ CLASS CONSTRUCTORA @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+
+
 class DatosEmpleado {
     constructor(nombre, apellido, idEmpleando) {
         this.nombre = nombre
         this.apellido = apellido
         this.idEmpleando = idEmpleando
     } mensaje() {
-        alert(`bienvenido al servicio ${this.nombre} ${this.apellido} tu id es: ${this.idEmpleando} 
-                @@@@@@@ VAMOS A COMENZAR @@@@@@@@`)
+        
+        msj.innerHTML = `<p> Bienvenido al servicio ${this.nombre} ${this.apellido} \n Tu id es: ${this.idEmpleando} 
+        @@@@@@@ VAMOS A COMENZAR @@@@@@@@ </p>`;
     }
 }
 
@@ -48,7 +57,6 @@ class Comandas {
         this.precio = opcion.precio
     }
 }
-
 
 //@@@@@@@@@@@@@@@@@@@ FUNCION FLECHA PARA SOLICITAR DATOS@@@@@@@@@@@@@@@@@@2
 
@@ -175,12 +183,12 @@ const registroPedidos = () => {
 //@@@@@@@@@@@@@@@@@@@@@@@@@@@ FUNCION PARA SABER CANTIDAD COMANDAS@@@@@@@@@@@@@@@@@@@@@@@@@@
 
 const cantComandas = () => {
-    alert(`Usted ingreso un total de ${canComandas} comandas`);
+    msjDos.innerHTML = `Usted ingreso un total de ${canComandas} comandas`;
 
 }
 //@@@@@@@@@@@@@@@@@@@@@@@@@@ FUNCION PARA RENDIR IMPORTE FINAL DEL DIA @@@@@@@@@@@@@@@@@@@@@
 const importeRendirCaja = () =>{
-    alert(`TOTAL A RENDIR: ${totalRendir}`)
+    msjTres.innerHTML =`TOTAL A RENDIR: ${totalRendir}`
 }
 
 //@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@ PANTALLA DE INICIO  @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
@@ -203,5 +211,5 @@ do {
         importeRendirCaja();
     }
 } while (parseInt(opciones));
-alert(`Terminaste el dia con ${canComandas} comandas.
-gracias por tu servicio @@@@${restoBar.razonSocial}@@@@`)
+msjDespedida.innerHTML = `${datosEmpleados[0].nombre} Terminaste el dia con ${canComandas} comandas.
+gracias por tu servicio @@@@${restoBar.razonSocial}@@@@`
