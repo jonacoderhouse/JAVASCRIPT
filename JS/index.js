@@ -30,6 +30,11 @@ const msj = document.querySelector('#textoFinalUno')
 const msjUno = document.querySelector('#textoFinalDos')
 const msjDos = document.querySelector('#textoFinalTres')
 const msjTres = document.querySelector('#textoFinalFour')
+const javas = document.querySelector(`#btn__javas`)
+const java = document.querySelector(`#btn__java`)
+const cantindad = document.querySelector(`#btn__cant`)
+const rendir = document.querySelector(`#btn__rendir`)
+const despedida = document.querySelector(`#btn__despedida`)
 
 
 //-------------------CLASS CONSTRUCTOR-------------
@@ -66,6 +71,7 @@ const loguearEmpleado = (nombre, apellido, id) => {
     infoEmpleado.mensaje();
     console.log(datosEmpleados);
 }
+javas.onclick =()=>{datosMozo()}
 
 const datosMozo = () => {
     let nombreMozo = prompt("Ingresar nombre mozo");
@@ -143,6 +149,7 @@ const menuDelDia = [
     }
 ]
 
+java.onclick =()=>{registroPedidos()}
 
 const registroPedidos = () => {
     do {
@@ -179,35 +186,18 @@ const registroPedidos = () => {
 
 
 //-----------------FUNCION PARA SABER CANTIDAD COMANDAS---------------------
-
+cantindad.onclick = ()=>{cantComandas()}
 const cantComandas = () => {
     msjDos.innerHTML = `Usted ingreso un total de ${canComandas} comandas`;
 
 }
 //----------------FUNCION PARA RENDIR IMPORTE FINAL DEL DIA-----------------
+
+rendir.onclick = ()=>{importeRendirCaja()} 
+
 const importeRendirCaja = () =>{
     msjTres.innerHTML =`TOTAL A RENDIR: ${totalRendir}`
 }
-
-//-----------PANTALLA INICIO--------------
-do {
-    opciones = Number(prompt(`#@#@#BIENVENIDO AL SERVICIO DE ${restoBar.razonSocial} #@#@#@
-    Opcion 1- Ingresar nombre Mozo.
-    Opcion 2- Ingresar comandas.
-    Opcion 3- Cantidad comandas.
-    Opcion 4- Importe final del dia.
-
-    $$$$$$ PRESIEONE ENTER PARA FINALIZAR $$$$$$`));
-
-    if (opciones === 1) {
-        datosMozo();
-    } else if (opciones === 2) {
-        registroPedidos();
-    } else if (opciones === 3) {
-        cantComandas();
-    }else if (opciones === 4){
-        importeRendirCaja();
-    }
-} while (parseInt(opciones));
+despedida.onclick =()=>{
 msjDespedida.innerHTML = `${datosEmpleados[0].nombre} Terminaste el dia con ${canComandas} comandas.
-gracias por tu servicio @@@@${restoBar.razonSocial}@@@@`
+gracias por tu servicio @@@@${restoBar.razonSocial}@@@@`}
