@@ -1,9 +1,5 @@
-//@@@@@@@@@@@@ APLICACION JONY @@@@@@@@@@@
 
-/*Realice un ejercicio aplicando Bucle do while con el fin de lograr una aplicacion que te permita
-realizar una lista de pedidos para un mozo y que sea mas rapido para mejorar el tiempo de pedido en las mesas*/
-
-//@@@@@@ OBJETO @@@@@@@@@@@@@@@
+//-------OBJETO LITERAL------
 const restoBar = {
     nombreFantasia: "RestoCAn",
     razonSocial: "BONNIE UMA MARGOT",
@@ -28,13 +24,15 @@ const restoBar = {
 }
 
 
-//@@@@@@@@@@@@@@@@@@@ ZONA NODOS @@@@@@@@@@@@@@@@@@@@
+//---------------------NODOS--------------------
 const msjDespedida = document.querySelector(`#textoFinal`)
 const msj = document.querySelector('#textoFinalUno')
 const msjUno = document.querySelector('#textoFinalDos')
 const msjDos = document.querySelector('#textoFinalTres')
 const msjTres = document.querySelector('#textoFinalFour')
-//@@@@@@@@@@@@@@@@@@@@@@@ CLASS CONSTRUCTORA @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+
+
+//-------------------CLASS CONSTRUCTOR-------------
 
 
 class DatosEmpleado {
@@ -58,7 +56,7 @@ class Comandas {
     }
 }
 
-//@@@@@@@@@@@@@@@@@@@ FUNCION FLECHA PARA SOLICITAR DATOS@@@@@@@@@@@@@@@@@@2
+//----------------FUNCION FLECHA PARA SOLICITAR DATOS------------------
 
 const datosEmpleados = [];// ARRAY PARA GUARDAR DATOS DE LA CANTIDAD DE EMPLEADOS QUE SE REGISTRA
 
@@ -88,7 +86,7 @@ const datosMozo = () => {
     loguearEmpleado(nombreMozo, apellidoMozo, idMozo)
 }
 
-//@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@ FUNCION PARA REGISTRO DE COMANDAS@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@2
+//--------------FUNCION PARA REGISTRO DE COMANDAS---------------------------------
 let canComandas = 0;
 const arrayGourmet = [];// ARRAY 
 const fecha = new Date;
@@ -180,18 +178,18 @@ const registroPedidos = () => {
 }
 
 
-//@@@@@@@@@@@@@@@@@@@@@@@@@@@ FUNCION PARA SABER CANTIDAD COMANDAS@@@@@@@@@@@@@@@@@@@@@@@@@@
+//-----------------FUNCION PARA SABER CANTIDAD COMANDAS---------------------
 
 const cantComandas = () => {
     msjDos.innerHTML = `Usted ingreso un total de ${canComandas} comandas`;
 
 }
-//@@@@@@@@@@@@@@@@@@@@@@@@@@ FUNCION PARA RENDIR IMPORTE FINAL DEL DIA @@@@@@@@@@@@@@@@@@@@@
+//----------------FUNCION PARA RENDIR IMPORTE FINAL DEL DIA-----------------
 const importeRendirCaja = () =>{
     msjTres.innerHTML =`TOTAL A RENDIR: ${totalRendir}`
 }
 
-//@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@ PANTALLA DE INICIO  @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+//-----------PANTALLA INICIO--------------
 do {
     opciones = Number(prompt(`#@#@#BIENVENIDO AL SERVICIO DE ${restoBar.razonSocial} #@#@#@
     Opcion 1- Ingresar nombre Mozo.
