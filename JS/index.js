@@ -84,12 +84,13 @@ botonDos.onclick = () => {
         botonUno.style.display = `none`;
     }
 
-    //-------- FUNCION SALUDO BIENVENIDA
+    //-------- FUNCION SALUDO BIENVENIDAe
+    const fecha = new Date().toLocaleString();
     const mensajeBienvenida = () => {
         selectContenedor.addEventListener('change', (event) => {
             if (!!`${event.target.value}`) {
                 ocultarFormulario();
-                respuesta.innerHTML = `BIENVENIDO AL SERVICIO : ${event.target.value}`;
+                respuesta.innerHTML = `BIENVENIDO AL SERVICIO : ${event.target.value}Fecha y Hora:${fecha}`;
             }
             localStorage.setItem("saludo", event.target.value) //localStorage
             sessionStorage.setItem("saludo", event.target.value) //sessionStorage
