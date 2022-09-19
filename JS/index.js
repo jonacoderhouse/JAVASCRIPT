@@ -25,7 +25,7 @@ const restoBar = {
 
 
 //---------------------NODOS--------------------
-const msjDespedida = document.querySelector(`#textoFinal`)
+
 const msj = document.querySelector('#textoFinalUno')
 const msjUno = document.querySelector('#textoFinalDos')
 const msjDos = document.querySelector('#textoFinalTres')
@@ -35,7 +35,7 @@ const java = document.querySelector(`#btn__java`)
 const cantindad = document.querySelector(`#btn__cant`)
 const rendir = document.querySelector(`#btn__rendir`)
 const despedida = document.querySelector(`#btn__despedida`)
-
+const msjDespedida = document.querySelector(`#textoFinal`)
 
 //-------------------CLASS CONSTRUCTOR-------------
 
@@ -45,7 +45,8 @@ class DatosEmpleado {
         this.nombre = nombre
         this.apellido = apellido
         this.idEmpleando = idEmpleando
-    } mensaje() {
+    } 
+    mensaje() {
         
         msj.innerHTML = `<p> Bienvenido al servicio ${this.nombre} ${this.apellido} \n Tu id es: ${this.idEmpleando} 
         @@@@@@@ VAMOS A COMENZAR @@@@@@@@ </p>`;
@@ -156,7 +157,7 @@ const registroPedidos = () => {
         ingresaMenu = Number(prompt(`Ingresar opciones de menu
         1-Milanesa con pure
         2-MIlanesa Napo con fritas
-        3-Bife de chorizo con papas espanolas
+        3-Bife de chorizo con papas espanolas 
         4-Ravioles con salsa rosa
         5-Tallarines con salsa portugueza
         6-Sorretinos salsa mixta
