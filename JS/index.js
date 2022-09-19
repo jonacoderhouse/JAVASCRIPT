@@ -50,15 +50,15 @@ empleados.push(empleadoUno, empleadoDos, empleadoTres)
 console.log(empleados);
 
 //------FUNCION QUE OCULTA Y APARECE BOTON Y SELECT DE OPCIONES
-const apareceDesaparece =()=>{    
-botonDos.classList.toggle(`oculto`)
-botonUno.classList.toggle(`aparecer`)
-selectContenedor.style.display = `block`;
+const apareceDesaparece = () => {
+    botonDos.classList.toggle(`oculto`)
+    botonUno.classList.toggle(`aparecer`)
+    selectContenedor.style.display = `block`;
 }
 
 //----- ----PANTALLA INICO
-    selectContenedor.style.display = 'none';
-    botonUno.classList.toggle(`oculto`)
+selectContenedor.style.display = 'none';
+botonUno.classList.toggle(`oculto`)
 
 //---------BOTON CON EVENTO Y FUNCION PARA CREAR OPCION DE MOZOS RECORRIENDO EL ARRAY
 botonDos.onclick = () => {
@@ -78,8 +78,8 @@ botonDos.onclick = () => {
         });
     }
 
-     //-------FUNCION PARA OCULTAR
-     const ocultarFormulario = () => {
+    //-------FUNCION PARA OCULTAR
+    const ocultarFormulario = () => {
         selectContenedor.style.display = 'none';
         botonUno.style.display = `none`;
     }
@@ -90,13 +90,13 @@ botonDos.onclick = () => {
         selectContenedor.addEventListener('change', (event) => {
             if (!!`${event.target.value}`) {
                 ocultarFormulario();
-                respuesta.innerHTML = `BIENVENIDO AL SERVICIO : ${event.target.value}Fecha y Hora:${fecha}`;
+                respuesta.innerHTML = `BIENVENIDO AL SERVICIO : ${event.target.value} Fecha y Hora:${fecha}`;
             }
             localStorage.setItem("saludo", event.target.value) //localStorage
             sessionStorage.setItem("saludo", event.target.value) //sessionStorage
         });
     }
-   
+
 
 
     const funcionFonal = () => {
