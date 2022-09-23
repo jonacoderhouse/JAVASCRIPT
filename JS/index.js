@@ -72,8 +72,8 @@ botonDos.onclick = () => {
             option.id = `botonId`
             option.innerHTML = `
         <p>Nombre: ${contendorCanasta.nombre}</p>
-        <P>Apellido: ${contendorCanasta.apellido}</P>
-        <b> ID:${contendorCanasta.id}</b>`
+        <P>Apellido: ${contendorCanasta.apellido}</P> 
+        <b> ID:${contendorCanasta.id}</b>` 
             selectContenedor.appendChild(option)
         });
     }
