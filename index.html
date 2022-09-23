@@ -20,18 +20,21 @@
 
 <body id="body">
 
-    <main id="mainUno" class="main">
-        <button id="botonDos" class="button">INICIO</button>
-        <button id="botonUno" class="button">Registro Empleado</button>
-        <select name="Registro" id="select" class="select">
-            <option >ELIJA UNA OPCION</option>
-        </select>
-        <p id="respuesta" class="respuesta"></p>
-    </main>
+    <h1 class="titulo" style="text-align: center; color:lawngreen">DESAFIO COMPLEMENTARIO TUTOR : LUIS MENA</h1>
 
-    <footer class="footer">
-        <h1>SEGUNDA ENTREGA <span class="colores">(REGISTRO DE EMPLEADOS)</span> </h1>
-    </footer>
+    <div id="contFormulario" >
+        <form id="formulario"  class="contenedorContacto" action="">
+            <input id="nombre" class="input" type="text" placeholder="Nombre">
+            <input id="apellido" class="input"  type="text" placeholder="Apellido">
+            <input id="edad" class="input"  type="number" placeholder="Id">
+            <input class="input"  value="Enviar" type="submit">
+        </form>
+    </div>
+
+    <div id="saludoUsuario"></div>
+
+    <div id="contenido"></div>
+    <button id="logout">Log out</button>
 
 
     <script src="./JS/index.js"></script>
