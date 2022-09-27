@@ -31,8 +31,7 @@ formulario.onsubmit = (e) => {
 
     Swal.fire({
         title: 'Bienvenid@',
-        text: `${nombre.value} estamos felices de tenerte
-        ID: ${id.value}`,
+        text: `${nombre.value} estamos felices de tenerte ID: ${id.value}`,
         icon: 'success',
         confirmButtonText: 'Iniciemos la jornada'
     });
@@ -52,7 +51,7 @@ logout.onclick = () => {
     // localStorage.clear();
     localStorage.removeItem('nombreUsuario');
     localStorage.removeItem('apellidoUsuario');
-    localStorage.removeItem('edadUsuario');
+    localStorage.removeItem('idUsuario');
 
 }
 
