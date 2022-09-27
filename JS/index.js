@@ -1,6 +1,6 @@
 let nombreUsuario = localStorage.getItem('nombreUsuario');
 let apellidoUsuario = localStorage.getItem('apellidoUsuario');
-let edadUsuario = localStorage.getItem('edadUsuario');
+let idUsuario = localStorage.getItem('idUsuario');
 let inputNombre = sessionStorage.getItem('inputNombre');
 
 
@@ -27,7 +27,7 @@ formulario.onsubmit = (e) => {
     e.preventDefault();
     nombreUsuario = nombre.value;
     apellidoUsuario = apellido.value;
-    edadUsuario = id.value;
+    idUsuario = id.value;
 
     Swal.fire({
         title: 'Bienvenid@',
@@ -39,13 +39,13 @@ formulario.onsubmit = (e) => {
 
     localStorage.setItem('nombreUsuario', nombre.value);
     localStorage.setItem('apellidoUsuario', apellido.value);
-    localStorage.setItem('edadUsuario', id.value);
+    localStorage.setItem('idUsuario', id.value);
     ocultarFormulario();
 }
 
 
 //OPERADOR AVANZADO &&
-!!nombreUsuario && !!apellidoUsuario && !!edadUsuario && ocultarFormulario();
+!!nombreUsuario && !!apellidoUsuario && !!idUsuario && ocultarFormulario();
 
 
 logout.onclick = () => {
