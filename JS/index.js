@@ -27,7 +27,7 @@ formulario.onsubmit = (e) => {
     e.preventDefault();
     nombreUsuario = nombre.value;
     apellidoUsuario = apellido.value;
-    edadUsuario = edad.value;
+    edadUsuario = id.value;
 
     Swal.fire({
         title: 'Bienvenid@',
