@@ -18,16 +18,23 @@ const logout = document.querySelector('#logout');
 //funciones
 const ocultarFormulario = () => {
     contFormulario.style.display = 'none';
-    contenido.innerHTML = `<p> ${nombreUsuario} ${apellidoUsuario}  Id: ${edadUsuario}.</p>`;
+    contenido.innerHTML = `<p> LIBRERIA SWEET ALERT.</p>`;
 }
 
-saludoEstudiantes.innerHTML = `<P>Bienvenido a la entrega de OPERADOR AVANZADOS</P>`;
+saludoEstudiantes.innerHTML = `<P>Bienvenido a la entrega de LIBRERIA</P>`;
 
 formulario.onsubmit = (e) => {
     e.preventDefault();
     nombreUsuario = nombre.value;
     apellidoUsuario = apellido.value;
     edadUsuario = edad.value;
+
+    Swal.fire({
+        title: 'Bienvenid@',
+        text: `${nombre.value} estamos felices de tenerte`,
+        icon: 'success',
+        confirmButtonText: 'Iniciemos la jornada'
+    });
 
     localStorage.setItem('nombreUsuario', nombre.value);
     localStorage.setItem('apellidoUsuario', apellido.value);
