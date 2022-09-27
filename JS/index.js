@@ -9,7 +9,7 @@ const saludoEstudiantes = document.querySelector('#saludoUsuario');
 const formulario = document.querySelector('#formulario');
 const nombre = document.querySelector('#nombre');
 const apellido = document.querySelector('#apellido');
-const edad = document.querySelector('#edad');
+const edad = document.querySelector('#id');
 const contFormulario = document.querySelector('#contFormulario');
 const contenido = document.querySelector('#contenido');
 const logout = document.querySelector('#logout');
@@ -31,14 +31,15 @@ formulario.onsubmit = (e) => {
 
     Swal.fire({
         title: 'Bienvenid@',
-        text: `${nombre.value} estamos felices de tenerte`,
+        text: `${nombre.value} estamos felices de tenerte
+        ID: ${id.value}`,
         icon: 'success',
         confirmButtonText: 'Iniciemos la jornada'
     });
 
     localStorage.setItem('nombreUsuario', nombre.value);
     localStorage.setItem('apellidoUsuario', apellido.value);
-    localStorage.setItem('edadUsuario', edad.value);
+    localStorage.setItem('edadUsuario', id.value);
     ocultarFormulario();
 }
 
