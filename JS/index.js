@@ -1,60 +1,79 @@
-let nombreUsuario = localStorage.getItem('nombreUsuario');
-let apellidoUsuario = localStorage.getItem('apellidoUsuario');
-let idUsuario = localStorage.getItem('idUsuario');
-let inputNombre = sessionStorage.getItem('inputNombre');
+const URL_POKEMON = "https://pokeapi.co/api/v2/pokemon/?limit=151";
+const JSON_POST = "https://jsonplaceholder.typicode.com/posts";
 
+// DOM
+const container = document.querySelector("#container");
+const btn = document.querySelector("#button");
+const form = document.querySelector("#form");
 
-//Variables DOM
-const saludoEstudiantes = document.querySelector('#saludoUsuario');
-const formulario = document.querySelector('#formulario');
-const nombre = document.querySelector('#nombre');
-const apellido = document.querySelector('#apellido');
-const id = document.querySelector('#id');
-const contFormulario = document.querySelector('#contFormulario');
-const contenido = document.querySelector('#contenido');
-const logout = document.querySelector('#logout');
-
-
-//funciones
-const ocultarFormulario = () => {
-    contFormulario.style.display = 'none';
-    contenido.innerHTML = `<p> LIBRERIA SWEET ALERT.</p>`;
+// FUNCION
+const capitalize = (str) => {
+    const lower = str.toLowerCase();
+    return str.charAt(0).toUpperCase() + lower.slice(1);
 }
 
-saludoEstudiantes.innerHTML = `<P>Bienvenido a la entrega de LIBRERIA</P>`;
+// APLICANDO FETCH CON API DE POKEMON
+const obtenerPokemon = () => {
 
-formulario.onsubmit = (e) => {
+    fetch(URL_POKEMON)
+        .then((respuesta) => {
+            return respuesta.json();
+        }).then(pokemonResults => {
+
+            const { results } = pokemonResults; //OBJETO DESESTRUCTURADO
+
+            for (const pokemon of results) {
+
+                const { url, name } = pokemon;//OBJETO DESESTRUCTURADO
+                const id = url.split('/')[url.split('/').length - 2];
+
+                const element = document.createElement('div');
+                element.className = 'card';
+                element.innerHTML = `
+        <img src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/${id}.png">
+        <h2 class="poke-name">#${id} - ${capitalize(name)}</h2>`;
+                container.append(element);
+            }
+
+        })
+        .catch(error => {
+            console.log('Hago algo en caso que falle');
+        }).finally(() => {
+
+        });
+}
+
+btn.addEventListener("click", () => {
+    obtenerPokemon();
+});
+
+
+
+//---------------REGISTRO NOMBRE Y CORREO EN IMPUT
+const enviarInformacion = (info) => {
+    fetch(JSON_POST, {
+        method: 'POST',
+        body: JSON.stringify(info),
+        headers: {
+            'Content-type': 'application/json; charset=UTF-8'
+        }
+    }).then(res => res.json())
+        .then(respuesta => {
+
+            Swal.fire({
+                title: 'Bienvenid@',
+                text: `Hola ${respuesta.nombre}.
+       El correo ${respuesta.valor} ha sido registrado`,
+                icon: 'success',
+                confirmButtonText: 'Iniciemos'
+            });
+
+        })
+}
+
+form.addEventListener("submit", (e) => {
     e.preventDefault();
-    nombreUsuario = nombre.value;
-    apellidoUsuario = apellido.value;
-    idUsuario = id.value;
-
-    Swal.fire({
-        title: 'Bienvenid@',
-        text: `${nombre.value} estamos felices de tenerte ID: ${id.value}`,
-        icon: 'success',
-        confirmButtonText: 'Iniciemos la jornada'
-    });
-
-    localStorage.setItem('nombreUsuario', nombre.value);
-    localStorage.setItem('apellidoUsuario', apellido.value);
-    localStorage.setItem('idUsuario', id.value);
-    ocultarFormulario();
-}
-
-
-//OPERADOR AVANZADO &&
-!!nombreUsuario && !!apellidoUsuario && !!idUsuario && ocultarFormulario();
-
-
-logout.onclick = () => {
-    // localStorage.clear();
-    localStorage.removeItem('nombreUsuario');
-    localStorage.removeItem('apellidoUsuario');
-    localStorage.removeItem('idUsuario');
-
-}
-
-
-
-
+    const mail = document.getElementById('email');
+    const nombre = document.getElementById('nombre');
+    enviarInformacion({ valor: mail.value, nombre: nombre.value });
+});

@@ -1,82 +1,81 @@
-*{
-    margin: 0;
+* {
     padding: 0;
-}
-#body{
-    background-color: black;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: space-around;
-}
-
-#saludoUsuario  {
-    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
-    text-align: center;
-    font-weight: bold;
-    font-size: 25px;
-    color: #62eb0c;
-}
-#contenido {
-    text-align: center;
-    color: #62eb0c;
-    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
-    font-weight: bold;
-    font-size: 40px;
-}
-
-#logout{
-
-    border: solid 5px antiquewhite;
-    background-color: #62eb0c;
-    border-radius: 20px;
-    width: 500px;
-    height: 50px;
-    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
-    font-size: 25px;
-    color: black;
-}
-
-.titulo{
-    text-align: center;
-    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
-    font-weight: bold;
-    font-size: 25px;
-}
-.contenedorContacto{
-    background-color: rgba(0, 0, 0, 0.465);
-    margin: auto;
-    display: flex;
-    flex-direction:column;
-    flex-wrap: wrap;
-    justify-content: space-between;
-    height: 450px;
-    width: 500px;
-    border: solid 5px black;
-    border-radius: 20px;
-
-}
-.input{
-    border: none;
-    outline: none;
+    margin: 0;
+    box-sizing: border-box;
+    font-family: "Poppins", sans-serif;
+    }
+    body {
+    background-color: #eff3ff;
+    }
+    nav {
+    background-color: #ef5350;
+    position: fixed;
+    top: 0;
     width: 100%;
-    height: 50px;
-    border-bottom: 1px solid #62eb0c;
-    border-radius: 10px;
-    font-weight: bold;
-    background-color:rgba(0, 0, 0, 0.404);
-    color: antiquewhite;
+    height: 64px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    z-index: 1;
+    padding: 0 40px;
+    }
+    button {
+    background-color: white;
+    border-radius: 8px;
+    box-shadow: none;
+    border: none;
+    padding: 10px;
     cursor: pointer;
-    font-size: 25px;
-    transition: 3s;
-}
-
-
-.input:focus{
-    color: #62eb0c;
-}
-
-.oculto{
-    display: none;
-}
-
+    }
+    img {
+    max-width: 100%;
+    max-height: 100%;
+    }
+    #container {
+    padding: 50px 0;
+    display: grid;
+    max-width: 100%;
+    grid-gap: 60px;
+    margin: 50px auto 0;
+    width: 95%;
+    grid-auto-rows: 320px;
+    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+    }
+    .card {
+    position: relative;
+    width: 100%;
+    padding: 30px 20px;
+    box-shadow: 0 20px 30px rgba(0, 0, 0, 0.15);
+    border-radius: 10px;
+    background: radial-gradient(circle at 50% 0%, rgb(48, 51, 107) 45%, rgb(255, 255, 255) 36%)
+        
+    }
+    .card img {
+    display: block;
+    width: 180px;
+    max-height: 200px;
+    position: relative;
+    margin: 20px auto;
+    }
+    .poke-name {
+    text-align: center;
+    font-weight: 600;
+    font-size: 18px;
+    }
+    .types {
+    display: flex;
+    justify-content: space-around;
+    margin: 20px 0 40px 0;
+    }
+    .hp span,
+    .types span {
+    font-size: 12px;
+    letter-spacing: 0.4px;
+    font-weight: 600;
+    }
+    .types span {
+    padding: 5px 20px;
+    border-radius: 20px;
+    color: #ffffff;
+    background-color: rgb(48, 51, 107);
+    }

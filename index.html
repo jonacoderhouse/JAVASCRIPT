@@ -20,25 +20,34 @@
 
 <body id="body">
 
-    <h1 class="titulo" style="text-align: center; color:lawngreen">DESAFIO COMPLEMENTARIO TUTOR : LUIS MENA</h1>
-
-    <div id="contFormulario" >
-        <form id="formulario"  class="contenedorContacto" action="">
-            <input id="nombre" class="input" type="text" placeholder="Nombre">
-            <input id="apellido" class="input"  type="text" placeholder="Apellido">
-            <input id="id" class="input"  type="number" placeholder="Id">
-            <input class="input"  value="Enviar" type="submit">
+    <nav>
+        <button id="button">Obtener Pokemon</button>
+        <form id="form" action="">
+            <input id="email" type="email" placeholder="CORREO">
+            <input id="nombre" type="name" placeholder="NOMBRE">
+            <input id="submit" type="submit" value="Enviar">
         </form>
+    </nav>
+    <div id="container">
+        <!-- Carta de Referencia -->
+        <div class="card">
+            <img
+                src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/6.png">
+            <h2 class="poke-name">#6 - Charizard</h2>
+        </div>
+
     </div>
-
-    <div id="saludoUsuario"></div>
-
-    <div id="contenido"></div>
-    <button id="logout">Log out</button>
-
+    
     <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
     <script src="./JS/index.js"></script>
     <script src="./libs/bootstrap/js/bootstrap.min.js"></script>
 </body>
 
 </html>
+
+
+
+
+
+
+
